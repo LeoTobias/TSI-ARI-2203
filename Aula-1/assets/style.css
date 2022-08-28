@@ -1,0 +1,31 @@
+/* <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+</head>
+<body style="background-color: #2d2d44;">
+    
+    <h2 style="color: #ffffff">Lucca Prestes Bordin</h2>
+    <section>
+        <h3 style="color: #ffffff">Aqui falarei um pouco sobre mim.</h3>
+    </section>
+    <article style="color: #ffffff">
+        <img src="https://mir-s3-cdn-cf.behance.net/user/230/6c879858923707.6227a33d1ee53.jpg"/>
+        <p>Gosto de editar, estudar programação e escrever novelas de Dark Fantasy.</p>
+        <p>Possuo também um podcast chamado <a href="https://www.youtube.com/c/NerdPlusOficial" style="color:rgb(1, 218, 117); text-decoration: none;">Farpas Podcast</a>. Lá gosto de trocar uma ideia com diversos influenciadores digitais de todos os tipos.</p>
+        <p>Entre em contato comigo pelo meu <a href="https://www.linkedin.com/in/lucca-bordin/" style="color:rgb(1, 218, 117); text-decoration: none;">Linkedin</a>.</p>
+    </article>
+</body>
+</html>  */
+
+body {
+    background-color: #a289d8;
+    text-align: center;
+    color: #fff;
+}
+ p{
+    color: black;
+ }
