@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        #arrastavel {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            margin: 10px;
+        }
+
+        #areaDeArraste{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="arrastavel" draggable="true"></div>
+    <div id="areaDeArraste"></div>
+    
+    <script>
+        var arrastavel = document.getElementById('arrastavel');
+        var areaDeArraste = document.getElementById('areaDeArraste');
+
+        arrastavel.addEventListener("dragstart", function(){           
+        });
+
+        areaDeArraste.addEventListener("dragover", function(e){ //Mudar a cor quando soltar
+            e.preventDefault();
+            areaDeArraste.style.backgroundColor = '#F082F3';
+        });
+
+        areaDeArraste.addEventListener("dragleave", function(){ // Para mudar a cor quando pegar
+            areaDeArraste.style.backgroundColor = '#0000FF';
+        });
+
+        areaDeArraste.addEventListener("drop", function(){
+            areaDeArraste.appendChild(arrastavel);
+        });
+
+
+
+
+    </script>
+</body>
+</html>
