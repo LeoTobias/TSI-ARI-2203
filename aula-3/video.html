@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<body>
+    <video src="" id="video"></video>
+    <meter id="progress"></meter>
+    <span id="tempoAtual">--</span>
+    <span>/</span>
+    <span id="duracao"></span>
+    <button id="btnPlay">Play</button>
+    <button id="btnPause">Pause</button>
+
+    <script>
+        let video       = document.getElementById('video');
+        let btnPlay     = document.getElementById('btnPlay');
+        let btnPause    = document.getElementById('btnPause');
+        let progress    = document.getElementById('');
+        let tempoAtual  = document.getElementById('');
+        let duracao     = document.getElementById('');
+
+        function play() {
+            video.play();
+        }
+        
+        function pause() {
+            video.pause();
+        }
+
+        btnPlay.onclick = play;
+        btnPause.onclick = pause;
+
+        video.addEventListener('canplay', () => {
+            console.log('videoDuration', video.duration);
+            progress.max = video.duration;
+            duracao.innerText = video.duration;
+        });
+
+        video.addEventListener('timeupdate', () => {
+            console.log('Caiu aqui dentro.');
+            progress.value = video.currentTime;
+            tempoAtual.innerText = video.currentTime;
+        });
+    </script>
+</body>
+</html>
