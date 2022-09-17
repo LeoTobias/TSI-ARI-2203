@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video</title>
+  <style>
+        #video{width: 500px;}
+
+        #player_controls{
+            width: 500px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid rgb(53, 52, 52);
+            border-radius: 8px;
+        }
+
+        .buttons{
+            display: flex;
+            margin-right: 25px;
+        }
+
+        #btn_play,
+        #btn_pause{
+          width: 60px;
+          height: 30px;
+        }
+
+        #video_progress{width: 100px;}
+        #progress_bar{width: calc(100% - 100px - 120px);}
+  </style>
+</head>
+<body>
+
+    <video src="assets/praia.mp4" id="video"></video>
+
+    <div id="player_controls">
+        <div class="buttons">
+            <button type="button" id="btn_play" onclick="video.play()">Play</button>
+            <button type="button" id="btn_pause" onclick="video.pause()">Pause</button>
+        </div> <!-- buttons -->
+
+        <span id='video_progress'>
+            <span id="progress_min">--</span>:<span id="progress_seg">--</span>
+            /
+            <span id="duration_min">--</span>:<span id="duration_seg">--</span>
+        </span> <!-- video_progress -->
+
+        <meter min="0" id="progress_bar"></meter>
+    </div> <!-- player_controls-->
+
+
+    <script>
+        let video        = document.getElementById('video');
+        let progress_bar = document.getElementById('progress_bar');
+        let progress_min = document.getElementById('progress_min');
+        let progress_seg = document.getElementById('progress_seg')
+        let duration_min = document.getElementById('duration_min');
+        let duration_seg = document.getElementById('duration_seg');
+
+        video.addEventListener('timeupdate', function(){
+            progress_bar.max         = video.duration;
+            progress_bar.value       = video.currentTime;
+
+            duration_min.textContent = Math.floor(video.duration / 60);
+            duration_seg.textContent = Math.floor(video.duration % 60);
+
+            progress_min.textContent = (video.currentTime > 59) ? Math.floor(video.currentTime / 60) : 0;
+            progress_seg.textContent = (video.currentTime < 59) ? Math.floor(video.currentTime)      : Math.floor(video.currentTime % 60);
+        })
+    </script>
+</body>
+</html>
