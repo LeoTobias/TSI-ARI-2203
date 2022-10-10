@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalização</title>
+</head>
+<body>
+    <script>
+        if("geolocation" in navigator){
+            let location = navigator.geolocation.getCurrentPosition(function(position){
+                console.log("Position", position);
+            }, function(error){
+                console.log('error', error.message);
+            });
+        }else{
+            alert("Não tem localização!");
+        }
+        // function getPositionSuccess(position) {
+                // Primeiro callback é o de sucesso
+        // }
+    </script>
+</body>
+</html>
