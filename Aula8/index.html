@@ -10,7 +10,23 @@
     <script>
         if("geolocation" in navigator){
             let location = navigator.geolocation.getCurrentPosition(function(position){
-                console.log("Position", position);
+                let latitude = position.coords.latitude;
+                let longitude = position.coords.longitude;
+                // let url = "http://dev.virtualearth.net/REST/v1/Locations/" + latitude + ',' + longitude + "?key=AoRt2lgev84dWPdlSt9oyU2deRxOvN-UsUgxLQ78ZmDTTZs49wk25M-Qlo9isUyn";
+
+                // console.log(url);
+
+                let request = new XMLHttpRequest();
+                request.open("GET", "http://dev.virtualearth.net/REST/v1/Locations/" + latitude + ',' + longitude + "?key=AoRt2lgev84dWPdlSt9oyU2deRxOvN-UsUgxLQ78ZmDTTZs49wk25M-Qlo9isUyn");
+                request.addEventListener("readystatechange", function(){
+                    if(request.status == 200 && request.readyState == 4){
+                        let responseJSON = JSON.parse(request.responseText);
+
+                        console.log('responseJSON', responseJSON.resourceSets[0].resources[0].name);
+                    }
+                });
+
+                request.send();
             }, function(error){
                 console.log('error', error.message);
             });
