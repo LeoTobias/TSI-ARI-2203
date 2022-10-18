@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+
+    <input type="button" value="Clique aqui!" onclick="clicar();"> <br>
+    <p id="mensagem"></p>
+    <button onclick="avancar()">Avançar</button>
+    <button onclick="voltar()">Voltar</button>
+
+    <script>
+        // var vezes = 0;
+        // function clicar() {
+        //     vezes++;
+        //     location.hash = vezes;
+        //     changeText(vezes);
+        // }
+
+        // window.addEventListener('hashchange', function(){
+        //     changeText(location.hash);
+        // })
+
+        // function changeText(vezes){
+        //     document.getElementById('mensagem').innerHTML = vezes + ' cliques';
+        // }
+            
+         var vezes = 0;
+         function clicar() {
+             vezes++;
+             document.getElementById('mensagem').innerHTML = vezes + ' cliques';
+
+             history.pushState({contador: vezes}, '', null);
+         }
+
+         function avancar(){
+            history.go(1);
+
+            document.getElementById('mensagem').innerHTML = history.state.contador + ' cliques';
+         }
+
+         function voltar(){
+            history.go(-1);
+
+            document.getElementById('mensagem').innerHTML = history.state.contador + ' cliques';
+
+         }
+
+    </script>
+</body>
+</html>
