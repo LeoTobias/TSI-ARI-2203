@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation</title>
+    <style>
+        #mapa{
+            position: relative;
+            width: 700px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h4>localização Atual: <span id="endereco"></span></h4>
+        <h4>Latitude: <span id="latitude"></span> | Longitude: <span id="longitude"></span></h4>
+        
+        <h4>Endereço: <span id="distancia"></span></h4>
+        <div id="mapa"></div>
+    </div>
+    
+    <script src="https://www.bing.com/api/maps/mapcontrol?callback=iniciaMapa" async defer></script>
+    <script src="script.js"></script>
+</body>
+</html>
